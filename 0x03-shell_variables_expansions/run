@@ -1,0 +1,73 @@
+#!/bin/bash
+cat <<EOF > 0-alias
+#!/bin/bash
+alias ls="rm *"
+EOF
+cat <<EOF > 1-hello_you
+#!/bin/bash
+echo "hello $USER"
+EOF
+cat <<EOF > 2-path
+#!/bin/bash
+export PATH=$PATH:/action
+EOF
+cat <<EOF > 3-paths
+#!/bin/bash
+echo $((`echo $PATH | grep -o ":/" | wc -l`+ 1))
+EOF
+cat <<EOF > 4-global_variables
+#!/bin/bash
+printenv
+EOF
+cat <<EOF > 5-local_variables
+#!/bin/bash
+set
+EOF
+cat <<EOF > 6-create_local_variable
+#!/bin/bash
+BEST="School"
+EOF
+cat <<EOF > 7-create_global_variable
+#!/bin/bash
+export BEST=School
+EOF
+cat <<EOF > 8-true_knowledge
+#!/bin/bash
+echo $(($TRUEKNOWLEDGE + 128))
+EOF
+cat <<EOF > 9-divide_and_rule
+#!/bin/bash
+echo $(($POWER / $DIVIDE))
+EOF
+cat <<EOF > 10-love_exponent_breath
+#!/bin/bash
+echo $((BREATH**$LOVE))
+EOF
+cat <<EOF > 11-binary_to_decimal
+#!/bin/bash
+echo "$((2#$BINARY))"
+EOF
+cat <<EOF > 12-combinations
+#!/bin/bash
+echo {a..z}{a..z} | tr " " "\n" | grep -v "oo"
+EOF
+cat <<EOF > 13-print_float
+#!/bin/bash
+printf "%.2f" $NUM | sort
+EOF
+cat <<EOF > 100-decimal_to_hexadecimal
+#!/bin/bash
+printf '%x\n' $DECIMAL
+EOF
+cat <<EOF > 101-rot13
+#!/bin/bash
+tr 'A-Za-z' 'N-ZA-Mn-za-m'
+EOF
+cat <<EOF > 102-odd
+#!/bin/bash
+perl -lne 'print if $. % 2 ==1'
+EOF
+cat <<EOF > 103-water_and_stir
+#!/bin/bash
+echo $(printf %o $(($((5#$(echo $WATER | tr 'water' '01234'))) + $((5#$(echo $STIR | tr 'stir.' '01234'))))) | tr '01234567' 'bestchol')
+EOF
