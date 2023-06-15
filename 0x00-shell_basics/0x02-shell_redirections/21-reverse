@@ -1,0 +1,7 @@
+#!/bin/bash
+rev
+EOF 
+
+cat <<EOF > 22-users_and_homes
+#!/bin/bash
+cut -d ':' -f 1,6 /etc/passwd | sort
